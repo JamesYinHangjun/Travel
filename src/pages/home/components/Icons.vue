@@ -73,7 +73,7 @@ export default {
       this.iconList.forEach((item, index) => {
         // page 表示页数 每个index 会算出对应的页数
         const page = Math.floor(index / 8)
-        if(!pages[page]) {
+        if (!pages[page]) {
           pages[page] = []
         }
         pages[page].push(item)
@@ -90,37 +90,39 @@ export default {
   .icons >>> .swiper-container
     height: 0
     padding-bottom: 50%
-  .icon
-    overflow: hidden
-    position: relative
-    float: left
-    width: 25%
-    height: 0
-    // 占总高度的一半
-    padding-bottom: 25%
-    .icon-img
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      bottom: .44rem
-      box-box-sizing: border-box
-      padding: .1rem
-      .icon-img-content
-        height: 100%
-        display: block
-        margin: 0 auto
-    .icon-desc
-      position: absolute
-      left: 0
-      right: 0
-      bottom: 0
-      height: .44rem
-      line-height: .44rem
-      text-align: center
-      color: $darkTextColor
-      // white-space: nowrap
-      // overflow: hidden
-      // text-overflow: ellipsis
-      ellipsis()
+  .icons
+    margin-top: .1rem
+    .icon
+      overflow: hidden
+      position: relative
+      float: left
+      width: 25%
+      height: 0
+      // 占总高度的一半
+      padding-bottom: 25%
+      .icon-img
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: .44rem
+        box-box-sizing: border-box
+        padding: .1rem
+        .icon-img-content
+          height: 100%
+          display: block
+          margin: 0 auto
+      .icon-desc
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        height: .44rem
+        line-height: .44rem
+        text-align: center
+        color: $darkTextColor
+        // white-space: nowrap
+        // overflow: hidden
+        // text-overflow: ellipsis
+        ellipsis()
 </style>
