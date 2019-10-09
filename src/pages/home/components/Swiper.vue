@@ -3,7 +3,7 @@
   用户看起来会有抖动的效果影响 -->
   <div class="wrapper">
     <swiper :options="swiperOption">
-      <swiper-slide v-for="item in swiperList" :key="item.index">
+      <swiper-slide v-for="item in swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" alt="">
       </swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
