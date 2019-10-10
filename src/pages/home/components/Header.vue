@@ -12,10 +12,12 @@
     </div>
 
     <!-- 头部右侧 -->
-    <div class="header-right">
+    <router-link to="/city">
+      <div class="header-right">
       {{this.city}}
       <span class="iconfont arrow-icon">&#xe64a;</span>
     </div>
+    </router-link>
   </div>
 </template>
 
@@ -37,7 +39,7 @@ export default {
     display: flex
     height: .86rem
     background: $bgColor
-    line-height: .86rem
+    line-height: $headerHeight
     color: #fff
     .header-left
       width: .64rem
@@ -59,6 +61,7 @@ export default {
       width: 1.24rem
       float: right
       text-align: center
+      color: #fff
       .arrow-icon
         margin-left: -.04rem
         font-size: .24rem
