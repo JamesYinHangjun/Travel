@@ -2,8 +2,8 @@
   <!-- 最外层加上一层div: 当轮播图还未加载完成，且网速较慢时，轮播图下面的内容会出现在轮播图的位置
   用户看起来会有抖动的效果影响 -->
   <div class="wrapper">
-    <swiper :options="swiperOption">
-      <swiper-slide v-for="item in swiperList" :key="item.id">
+    <swiper :options="swiperOption" v-if="showSwiper">
+      <swiper-slide v-for="item in list" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" alt="">
       </swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
@@ -14,6 +14,9 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
@@ -21,14 +24,12 @@ export default {
         pagination: '.swiper-pagination',
         // 控制循环
         loop: true
-      },
-      swiperList: [{
-        id: '0001',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20199/d470f926c1ae3f32169122a44ce5939f.jpg_750x200_63bde493.jpg'
-      }, {
-        id: '0002',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201910/8e06952844ba820aea69f3468e16c8d1.jpg_750x200_fda53def.jpg'
-      }]
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }

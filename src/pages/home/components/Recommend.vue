@@ -3,7 +3,7 @@
     <div class="title">热销推荐</div>
     <ul>
       <!-- border-bottom是前面引入的border.css中解决一像素边框问题的 -->
-      <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item in list" :key="item.id">
         <img class="item-img" :src="item.imgUrl" alt="">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -18,30 +18,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/e6/e646f4221574cc2a90.water.jpg_200x200_d9b6cabd.jpg',
-        title: '双溪漂流',
-        desc: '江南惊险漂流，水清、竹多、落差大'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/e6/e646f4221574cc2a90.water.jpg_200x200_d9b6cabd.jpg',
-        title: '双溪漂流',
-        desc: '江南惊险漂流，水清、竹多、落差大'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/e6/e646f4221574cc2a90.water.jpg_200x200_d9b6cabd.jpg',
-        title: '双溪漂流',
-        desc: '江南惊险漂流，水清、竹多、落差大'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/e6/e646f4221574cc2a90.water.jpg_200x200_d9b6cabd.jpg',
-        title: '双溪漂流',
-        desc: '江南惊险漂流，水清、竹多、落差大'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
