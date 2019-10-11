@@ -22,7 +22,7 @@
       </div>
 
       <!-- 城市部分 -->
-      <div class="area" v-for="(item,key) in cities" :key="key">
+      <div class="area" v-for="(item,key) in cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
           <div class="item border-bottom" v-for="innerItem in item" :key="innerItem.id">
@@ -40,10 +40,24 @@ export default {
   name: 'CityList',
   props: {
     cities: Object,
-    hotCities: Array
+    hotCities: Array,
+    letter: String
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  watch: {
+    // 当 List.vue 发现letter改变时，需要让该组件显示的列表项跟letter相同的首字母
+    // 开头的列表项显示出来
+    letter () {
+      // console.log(letter)
+      if (this.letter) {
+        // 因为refs中的this.letter是循环产生的，所以this.$refs[this.letter]输出的是一个数组
+        // 而 scroll.scrollToElement(element) 中的element必须是一个Dom元素,所以再其后加[0]
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
