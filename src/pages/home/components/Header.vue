@@ -14,6 +14,7 @@
     <!-- 头部右侧 -->
     <router-link to="/city">
       <div class="header-right">
+      <!-- {{this.$store.state.city}} -->
       {{this.city}}
       <span class="iconfont arrow-icon">&#xe64a;</span>
     </div>
@@ -22,11 +23,17 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    // mapState 把 vuex中的数据映射到该组件的计算属性中
+    // 把 vuex 中的 city 属性映射到该组件的city计算属性中
+    ...mapState(['city'])
   }
+  // props: {
+  //   city: String
+  // }
 }
 </script>
 
@@ -58,7 +65,8 @@ export default {
       border-radius: .1rem
       padding-left: .2rem
     .header-right
-      width: 1.24rem
+      min-width: 1.04rem
+      padding: 0 .1rem
       float: right
       text-align: center
       color: #fff

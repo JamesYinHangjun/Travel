@@ -8,7 +8,9 @@
     <!-- v-show="keyword" 当输入框中有值时显示这个区块 -->
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li class="search-item border-bottom" v-for="item in list" :key="item.id">
+        <li class="search-item border-bottom" v-for="item in list" :key="item.id"
+            @click="handleCityClick(item.name)"
+        >
           {{item.name}}
         </li>
 
@@ -32,6 +34,12 @@ export default {
       keyword: '',
       list: [],
       timer: null
+    }
+  },
+  methods: {
+    handleCityClick (city) {
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
     }
   },
   watch: {
