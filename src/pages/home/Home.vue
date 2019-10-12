@@ -67,7 +67,6 @@ export default {
       this.lastCity = this.city
       this.getHomeInfo()
     }
-
   }
 }
 </script>
